@@ -25,8 +25,8 @@ namespace NoviceChallenges
             
             Console.WriteLine(StringLength(deadMeme));
             
-            //Issue with 5: doesn't recongnize caps
-            Console.WriteLine(StartsHello("Hello"));
+            Console.WriteLine(StartsHello("helLo"));
+            Console.WriteLine(StartsHello(dog));
 
             Console.WriteLine(ReverseString(deadMeme));  
             
@@ -103,19 +103,16 @@ namespace NoviceChallenges
             // HINT: Use the string method "StartsWith".
             //Ethan here: I couldn't figure out "StartsWith", so I improvised.
             //May return later?
-            bool doesStartHello = true; 
-            string hello = "hello";
-            char[] gigaHello = hello.ToCharArray();
-            char [] searchedWord = s.ToCharArray();
-            for (int i = 0; i < hello.Length; i++)
+            //Had to return later. Its not caps insensitive!
+
+            if(s.StartsWith("hello", StringComparison.InvariantCultureIgnoreCase) == true)
             {
-                if (gigaHello[i] != searchedWord[i])
-                {
-                    doesStartHello = false;
-                    break;
-                }
+                return true;
             }
-            return doesStartHello;
+            else
+            {
+                return false;
+            }
         }
 
         // 6. Reverse a given string.

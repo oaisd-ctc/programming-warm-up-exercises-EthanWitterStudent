@@ -8,7 +8,31 @@ namespace NoviceChallenges
     {
         static void Main(string[] args)
         {
-            // Use the Main method to test your functions.
+            int number_a = 5;
+            int number_b = 14;
+            int number_c = 9;
+
+            string dog = "dog";
+            string deadMeme = "Big Chungus";
+            
+            Console.WriteLine(Add(number_a, number_b));
+            Console.WriteLine(IsEven(number_c));
+            Console.WriteLine(MaxOfThree(number_a, number_b, number_c));
+            Console.WriteLine(StringLength(deadMeme));
+            //Issue with 5: doesn't recongnize caps
+            Console.WriteLine(StartsHello("Hello"));
+
+            //Issue with 6: Array breaks, probably a numbering issue
+            // Console.WriteLine(ReverseString(deadMeme));
+            
+            Console.WriteLine(Factorial(number_c));
+            Console.WriteLine(IsPrime(number_a));
+            
+            //Issue with 7: calculation is incorrect
+            Console.WriteLine(Fibonacci(number_b));
+            Console.WriteLine(Fibonacci(1));
+
+            
         }
 
         // 1. Return the sum of two numbers.
@@ -62,7 +86,7 @@ namespace NoviceChallenges
             //Ethan here: I couldn't figure out "StartsWith", so I improvised.
             //May return later?
             bool doesStartHello = true; 
-            string hello = "Hello";
+            string hello = "hello";
             char[] gigaHello = hello.ToCharArray();
             char [] searchedWord = s.ToCharArray();
             for (int i = 0; i < hello.Length; i++)
@@ -130,14 +154,23 @@ namespace NoviceChallenges
                 return n;
             }
             int[] fibonacci = new int[n];
+            if (n == 1)
+            {
+                return 0;
+            }
+            else if (n == 1)
+            {
+                return 1;
+            }
+
             fibonacci [0] = 0;
             fibonacci [1] = 1;
             for(int i = 2; i < n; i++)
             {
-                fibonacci[i] = fibonacci[i-1] * fibonacci[i-2];
+                fibonacci[i] = fibonacci[i-1] + fibonacci[i-2];
             }
             
-            return fibonacci[n];
+            return fibonacci[n-1];
         }
 
         // 10. Given an array of integers, return the largest number.
@@ -177,7 +210,7 @@ namespace NoviceChallenges
             int sum = 0;
             foreach (int num in numbers)
             {
-                
+                sum = sum+num;
             }
             return sum;
         }
@@ -186,25 +219,36 @@ namespace NoviceChallenges
         public static int CharCount(string s, char c)
         {
             int count = 0;
-            // TODO: Count how many times character c appears in string s.
+            foreach(char letter in s)
+            {
+                if(letter == c)
+                {
+                    count++;
+                }
+            }
             return count;
         }
 
         // 14. Given two strings, return a new string that is the concatenation of the two strings with a space in between.
         public static string ConcatenateStrings(string str1, string str2)
         {
-            // TODO: Concatenate the two strings with a space in between.
-            return "";
+            return str1 + " " + str2;
         }
 
         // 15. Given a string, return a new string where the first and last characters have been swapped.
         public static string SwapEnds(string s)
         {
-            if (s.Length <= 1) return s;
+            if (s.Length <= 1) 
+            {
+                return s;
+            }
             char firstChar = s[0];
             char lastChar = s[s.Length - 1];
-            // TODO: Swap the first and last characters and return the modified string.
-            return "";
+            char[] s2 = s.ToCharArray();
+            s2[0] = lastChar;
+            s2[s2.Length-1] = firstChar;
+            
+            return new string(s2);
         }
     }
 }

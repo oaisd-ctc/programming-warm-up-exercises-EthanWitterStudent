@@ -39,7 +39,6 @@ namespace NoviceChallenges
 
             Console.WriteLine(LargestInArray(numberArray));
             
-            //Issue with 11: Isn't caps sensitive
             Console.WriteLine(IsPalindrome(dog));
             Console.WriteLine(IsPalindrome("madaM"));
 
@@ -200,16 +199,14 @@ namespace NoviceChallenges
         public static bool IsPalindrome(string s)
         {
             bool isItPalindrome = true;
-            char[] normalRead = s.ToCharArray();
             string reversedWord = ReverseString(s);
-            char[] reversedRead = reversedWord.ToCharArray();
-            for (int i = 0; i<s.Length; i++)
+
+            int placeholdNum = String.Compare(s, reversedWord, true);
+            if (placeholdNum != 0)
             {
-                if(normalRead[i] != reversedRead[i])
-                {
-                    isItPalindrome = false;
-                }
+                isItPalindrome = false;
             }
+
             return isItPalindrome;
         }
 

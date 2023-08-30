@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Numerics;
 using System.Runtime.InteropServices;
 
 namespace NoviceChallenges
@@ -11,6 +12,7 @@ namespace NoviceChallenges
             int number_a = 5;
             int number_b = 14;
             int number_c = 9;
+            int[] numberArray = {number_a, number_b, number_c};
 
             string dog = "dog";
             string deadMeme = "Big Chungus";
@@ -25,14 +27,28 @@ namespace NoviceChallenges
             //Issue with 6: Array breaks, probably a numbering issue
             // Console.WriteLine(ReverseString(deadMeme));
             
+            //Issue with 7: math is incorrect
             Console.WriteLine(Factorial(number_c));
+            
             Console.WriteLine(IsPrime(number_a));
             
-            //Issue with 7: calculation is incorrect
+            //Issue with 9: calculation is incorrect
             Console.WriteLine(Fibonacci(number_b));
             Console.WriteLine(Fibonacci(1));
 
+            Console.WriteLine(LargestInArray(numberArray));
             
+            //Issue with 11: Array breaks...another numbering issue? (Also, "dog" isn't a palindrome.) 
+            //issue is likely that 11 uses ReverseString, and ReverseString is also broken
+            // Console.WriteLine(IsPalindrome(dog));
+
+            Console.WriteLine(ArraySum(numberArray));
+            
+            //Issue with 13: isn't caps sensitive
+            Console.WriteLine(CharCount(deadMeme, 'U'));
+
+            Console.WriteLine(ConcatenateStrings(dog, deadMeme));
+            Console.WriteLine(SwapEnds(dog));
         }
 
         // 1. Return the sum of two numbers.
@@ -232,7 +248,7 @@ namespace NoviceChallenges
         // 14. Given two strings, return a new string that is the concatenation of the two strings with a space in between.
         public static string ConcatenateStrings(string str1, string str2)
         {
-            return str1 + " " + str2;
+            return new string (str1 + " " + str2);
         }
 
         // 15. Given a string, return a new string where the first and last characters have been swapped.

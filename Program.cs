@@ -18,29 +18,30 @@ namespace NoviceChallenges
             string deadMeme = "Big Chungus";
             
             Console.WriteLine(Add(number_a, number_b));
+            
             Console.WriteLine(IsEven(number_c));
+            
             Console.WriteLine(MaxOfThree(number_a, number_b, number_c));
+            
             Console.WriteLine(StringLength(deadMeme));
+            
             //Issue with 5: doesn't recongnize caps
             Console.WriteLine(StartsHello("Hello"));
 
-            //Issue with 6: Array breaks, probably a numbering issue
-            // Console.WriteLine(ReverseString(deadMeme));
+            Console.WriteLine(ReverseString(deadMeme));  
             
-            //Issue with 7: math is incorrect
-            Console.WriteLine(Factorial(number_c));
+            Console.WriteLine(Factorial(number_c));  
             
             Console.WriteLine(IsPrime(number_a));
             
-            //Issue with 9: calculation is incorrect
             Console.WriteLine(Fibonacci(number_b));
             Console.WriteLine(Fibonacci(1));
 
             Console.WriteLine(LargestInArray(numberArray));
             
-            //Issue with 11: Array breaks...another numbering issue? (Also, "dog" isn't a palindrome.) 
-            //issue is likely that 11 uses ReverseString, and ReverseString is also broken
-            // Console.WriteLine(IsPalindrome(dog));
+            //Issue with 11: Isn't caps sensitive
+            Console.WriteLine(IsPalindrome(dog));
+            Console.WriteLine(IsPalindrome("madaM"));
 
             Console.WriteLine(ArraySum(numberArray));
             
@@ -48,6 +49,7 @@ namespace NoviceChallenges
             Console.WriteLine(CharCount(deadMeme, 'U'));
 
             Console.WriteLine(ConcatenateStrings(dog, deadMeme));
+            
             Console.WriteLine(SwapEnds(dog));
         }
 
@@ -123,7 +125,8 @@ namespace NoviceChallenges
             char[] ReversedcharArray = new char[charArray.Length];
             for(int i = 0; i < charArray.Length; i++)
             {
-                ReversedcharArray[i] = charArray[charArray.Length-i];
+                
+                ReversedcharArray[i] = charArray[charArray.Length-i-1];
             }
 
             return new string(ReversedcharArray);
@@ -136,10 +139,10 @@ namespace NoviceChallenges
             {
                 return 1;
             }
-            int totalFactorial = 1;
-            for (int i = n-1; i>= 1; i--)
+            int totalFactorial = n;
+            for (int i = n-1; i > 0; i--)
             {
-                totalFactorial = totalFactorial*i;
+                totalFactorial = totalFactorial * i;
             }
             return totalFactorial;
         }
@@ -169,24 +172,17 @@ namespace NoviceChallenges
             {
                 return n;
             }
-            int[] fibonacci = new int[n];
-            if (n == 1)
-            {
-                return 0;
-            }
-            else if (n == 1)
-            {
-                return 1;
-            }
 
+            int[] fibonacci = new int[n+1];
+            
             fibonacci [0] = 0;
             fibonacci [1] = 1;
-            for(int i = 2; i < n; i++)
+            for(int i = 2; i <= n; i++)
             {
                 fibonacci[i] = fibonacci[i-1] + fibonacci[i-2];
             }
             
-            return fibonacci[n-1];
+            return fibonacci[n];
         }
 
         // 10. Given an array of integers, return the largest number.

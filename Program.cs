@@ -102,6 +102,7 @@ namespace NoviceChallenges
             // HINT: Use the string method "StartsWith".
             //Ethan here: I couldn't figure out "StartsWith", so I improvised.
             //May return later?
+            
             //Had to return later. Its not caps insensitive!
 
             if(s.StartsWith("hello", StringComparison.InvariantCultureIgnoreCase) == true)
@@ -223,7 +224,9 @@ namespace NoviceChallenges
 
         // 13. Given a string, count how many times a specified character appears in it.
         public static int CharCount(string s, char c)
-        {
+        {   //Ethan note: capitalizing everything doesn't always work for caps insensitive, because languages like Turkey exist
+            //However, this assignment is in English, so this little oversight hopefully won't matter
+
             s = s.ToUpper();
             c = Char.ToUpper(c);
             int count = s.Count(x => x == c);

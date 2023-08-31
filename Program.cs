@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Numerics;
 using System.Runtime.InteropServices;
+using System.Linq;
 
 namespace NoviceChallenges
 {
@@ -44,7 +45,6 @@ namespace NoviceChallenges
 
             Console.WriteLine(ArraySum(numberArray));
             
-            //Issue with 13: isn't caps sensitive
             Console.WriteLine(CharCount(deadMeme, 'U'));
 
             Console.WriteLine(ConcatenateStrings(dog, deadMeme));
@@ -224,14 +224,10 @@ namespace NoviceChallenges
         // 13. Given a string, count how many times a specified character appears in it.
         public static int CharCount(string s, char c)
         {
-            int count = 0;
-            foreach(char letter in s)
-            {
-                if(letter == c)
-                {
-                    count++;
-                }
-            }
+            s = s.ToUpper();
+            c = Char.ToUpper(c);
+            int count = s.Count(x => x == c);
+            
             return count;
         }
 
